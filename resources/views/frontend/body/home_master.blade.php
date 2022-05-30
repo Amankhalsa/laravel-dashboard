@@ -147,7 +147,11 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('frontend/js/script.js')}}"></script>
   <script>
-    var swiper = new Swiper(".logoSwiper", {
+        var swiper = new Swiper(".logoSwiper", {
+           autoplay: {
+          delay: 2400,
+          disableOnInteraction: false,
+        },
       slidesPerView: 1,
       spaceBetween: 5,
       loop: true,
@@ -197,6 +201,10 @@
   </script>
   <script>
     var swiper = new Swiper(".bannerSlider", {
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
