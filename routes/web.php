@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\frontend\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,9 @@ use App\Http\Controllers\admin\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -68,3 +69,24 @@ Route::group(["prefix" => "admin", "namespace" => "admin"], function() {
 //         Route::get('/test', 'HomeController@test');
 //     });
 // });
+
+
+// *******************************************************************************************
+                    // all other Frontend  related routes 
+// *******************************************************************************************
+
+Route::controller(FrontendController::class)->group(function () {
+    // home page 
+    Route::get('/', 'frontend_page')->name('front.home_page');
+
+
+    // eyeglass page 
+    Route::get('/eyeglass', 'frontend_eyeglass')->name('front.eyeglass.page');
+    // sunglass
+    Route::get('/sunglass', 'frontend_sunglass')->name('front.sunglass.page');
+
+    // brands
+    Route::get('/brands', 'frontend_brands')->name('front.brands.page');
+
+
+});
